@@ -1,0 +1,20 @@
+<!--pages/songList/songList.wxml-->
+<view wx:if="{{songList}}" class="cu-list grid col-2">
+  <block wx:for="{{songList}}" wx:key wx:for-index="index">
+    <view class="cu-card case">
+      <view class="cu-item" bindtap='gotoMusicList' data-id="{{item.id}}">
+        <view class='image'>
+          <image src="{{item.coverImgUrl}}" mode="widthFix"></image>
+          <text class='icon-people text-content text-white bg-shadeBottom'>{{item.creator}}</text>
+          <view class="cu-tag text-white">{{item.songNum}}首</view>
+        </view>
+        <view class="cu-list">
+          <view class='content flex-sub text-left padding-bottom-sm'>
+            <view class='text-content'>{{item.title}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+<view wx:if="{{!songList||loading}}" class="cu-load bg-white text-pink loading"></view>

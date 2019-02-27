@@ -1,0 +1,40 @@
+<!--pages/rankList/rankList.wxml-->
+<view class="flex padding-sm justify-between align-center">
+  <view class='action padding-left-sm'>
+    <text class='text-xxl text-bold text-black'>云音乐特色榜</text>
+  </view>
+</view>
+<view class="cu-list menu menu-avatar sm-border">
+  <view class="cu-item" wx:for="{{cloudRankList}}" wx:key wx:for-index="index" bindtap='gotoMusicList' data-id="{{item.songListId}}">
+    <view class="cu-avatar radius lg" style="background-image:url({{item.songListPic}});"></view>
+    <view class='content'>
+      <view>{{item.songListName}}</view>
+      <view class='text-gray text-sm'>
+        {{item.songListDescription}}</view>
+    </view>
+    <view class='action'>
+      <view class='text-gray text-sm'>{{item.songListCount}}首</view>
+      <view class='icon-right text-sm text-gray'></view>
+    </view>
+  </view>
+</view>
+
+<view class="flex padding-sm justify-between align-center">
+  <view class='action padding-left-sm'>
+    <text class='text-xxl text-bold text-black'>全球媒体榜</text>
+  </view>
+</view>
+<view class="cu-list menu menu-avatar sm-border">
+  <view class="cu-item" wx:for="{{mediaRankList}}" wx:key wx:for-index="index" bindtap='gotoMusicList' data-id="{{item.songListId}}">
+    <view class="cu-avatar radius lg" style="background-image:url({{item.songListPic}});"></view>
+    <view class='content'>
+      <view>{{item.songListName}}</view>
+      <view class='text-gray text-sm desc'>
+        {{item.songListDescription}}</view>
+    </view>
+    <view class='action'>
+      <view class='text-gray text-sm'>{{item.songListCount}}首</view>
+      <view class='icon-right text-sm text-gray'></view>
+    </view>
+  </view>
+</view>

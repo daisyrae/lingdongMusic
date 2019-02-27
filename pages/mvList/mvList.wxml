@@ -1,0 +1,22 @@
+<!--pages/mvList/mvList.wxml-->
+<view wx:if="{{mvs}}" class="cu-list grid col-2">
+  <block wx:for="{{mvs}}" wx:key wx:for-index="index">
+    <view class="cu-card case">
+      <view class="cu-item">
+        <view class='image bg-img' style="background-image:url({{item.pic}});">
+          <view class='icon-play' bindtap='gotoVideoPlay' data-id="{{item.id}}">
+            <text class='icon-playfill text-white text-sl'></text>
+          </view>
+          <view class="cu-tag text-white">{{item.playCount/10000}}万</view>
+          <text class='icon-people text-content text-white bg-shadeBottom'>{{item.singer}}</text>
+        </view>
+        <view class="cu-list">
+          <view class='content flex-sub text-left padding-tb-sm'>
+            <view class='text-content'>{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+<view wx:if="{{!mvs||loading}}" class="cu-load bg-white text-pink loading"></view>

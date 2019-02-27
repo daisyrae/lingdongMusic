@@ -1,0 +1,29 @@
+/* pages/mine/mine.wxss */
+
+.user-info {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  -webkit-transform: translateZ(0);
+}
+
+.main {
+  position: fixed;
+  top: 400rpx;
+  z-index: 1;
+  width: 100%;
+  -webkit-transform: translateZ(0);
+}
+
+.userinfo-avatar {
+  overflow: hidden;
+  display: block;
+  width: 160rpx;
+  height: 160rpx;
+  margin: 20rpx;
+  margin-top: 50rpx;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}

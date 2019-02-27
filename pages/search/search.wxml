@@ -1,0 +1,128 @@
+<!--pages/search/search.wxml-->
+<view class='position-fixed shadow'>
+  <view class="cu-bar search bg-white">
+    <view class='search-form round'>
+      <text class="icon-search"></text>
+      <input class='text-left' type="text" placeholder="搜索音乐、歌手、专辑、歌单、视频" bindinput='saveKey' value='{{key}}' confirm-type="search" bindconfirm="searchByKey"></input>
+    </view>
+    <view class='action'>
+      <button class='cu-btn bg-white round text-pink' bindtap="searchByKey">搜索</button>
+    </view>
+  </view>
+  <view class="cu-bar tabbar bg-white">
+    <view class="action" wx:for="{{tabs}}" wx:key wx:for-index="index">
+      <text class='text-{{tabIndex==index?"pink":"black"}} {{tabIndex==index?"border-tab":""}} text-df padding-tab' bindtap='switchTab' data-index="{{index}}">{{item}}</text>
+    </view>
+  </view>
+</view>
+
+
+<!-- 音乐 -->
+<view wx:if="{{tabIndex==0}}" class="cu-list menu menu-avatar main">
+  <block wx:for="{{songs}}" wx:key wx:for-index="index">
+    <view class="cu-item" bindtap='gotoAudioPlay' data-songindex="0" data-songlistid="111" data-songid="{{item.id}}">
+      <view class="cu-index text-gray">{{index+1}}</view>
+      <view class="cu-avatar lg margin-index" style="background-image:url({{item.pic}});"></view>
+      <view class='content margin-index'>
+        <view class="text-black singer">
+          {{item.name}}
+        </view>
+        <view class="text-gray text-sm singer">
+          {{item.singer}}
+        </view>
+      </view>
+      <view class='action'>
+        <view class="text-gray text-sm">{{item.long}}</view>
+        <view class="icon-right text-sm text-gray"></view>
+      </view>
+    </view>
+  </block>
+</view>
+
+<!-- 歌手 -->
+<view wx:if="{{tabIndex==1}}" class="cu-list menu menu-avatar main">
+  <block wx:for="{{singers}}" wx:key wx:for-index="index">
+    <view class="cu-item" bindtap='seeSinger'>
+      <view class="cu-index text-gray">{{index+1}}</view>
+      <view class="cu-avatar lg margin-index" style="background-image:url({{item.picUrl+'?param=400y400'}});"></view>
+      <view class='content margin-index'>
+        <view class="text-black singer">
+          {{item.name}}
+        </view>
+        <view class="text-gray text-sm singer">
+          {{item.trans?item.trans:''}}
+        </view>
+      </view>
+      <view class='action'>
+        <view class="icon-right text-sm text-gray"></view>
+      </view>
+    </view>
+  </block>
+</view>
+
+<!-- 专辑 -->
+<view wx:if="{{tabIndex==2}}" class="cu-list menu menu-avatar main">
+  <block wx:for="{{albums}}" wx:key wx:for-index="index">
+    <view class="cu-item" bindtap='gotoAlbumList' data-id="{{item.id}}">
+      <view class="cu-index text-gray">{{index+1}}</view>
+      <view class="cu-avatar lg margin-index" style="background-image:url({{item.picUrl+'?param=400y400'}});"></view>
+      <view class='content margin-index'>
+        <view class="text-black singer">
+          {{item.name}}
+        </view>
+        <view class="text-gray text-sm singer">
+          {{item.artist.name}}
+        </view>
+      </view>
+      <view class='action'>
+        <view class="text-gray text-sm">{{item.size}}首</view>
+        <view class="icon-right text-sm text-gray"></view>
+      </view>
+    </view>
+  </block>
+</view>
+
+<!-- 歌单 -->
+<view wx:if="{{tabIndex==3}}" class="cu-list menu menu-avatar main">
+  <block wx:for="{{lists}}" wx:key wx:for-index="index">
+    <view class="cu-item" bindtap='gotoMusicList' data-id="{{item.id}}">
+      <view class="cu-index text-gray">{{index+1}}</view>
+      <view class="cu-avatar lg margin-index" style="background-image:url({{item.coverImgUrl+'?param=400y400'}});"></view>
+      <view class='content margin-index'>
+        <view class="text-black singer">
+          {{item.name}}
+        </view>
+        <view class="text-gray text-sm singer">
+          {{item.creator.nickname}}
+        </view>
+      </view>
+      <view class='action'>
+        <view class="text-gray text-sm">{{item.trackCount}}首</view>
+        <view class="icon-right text-sm text-gray"></view>
+      </view>
+    </view>
+  </block>
+</view>
+
+<!-- 视频 -->
+<view wx:if="{{tabIndex==4}}" class="cu-list menu menu-avatar main">
+  <block wx:for="{{videos}}" wx:key wx:for-index="index">
+    <view class="cu-item" bindtap='gotoVideoPlay' data-index="{{index}}">
+      <view class="cu-index text-gray">{{index+1}}</view>
+      <view class="cu-avatar lg margin-index" style="background-image:url({{item.coverUrl+'?param=400y400'}});"></view>
+      <view class='content margin-index'>
+        <view class="text-black singer">
+          {{item.title}}
+        </view>
+        <view class="text-gray text-sm singer">
+          {{item.creator[0].userName}}
+        </view>
+      </view>
+      <view class='action'>
+        <view wx:if="{{item.type==0}}" class="text-pink text-bold text-sm">播放</view>
+        <view class="icon-right text-sm text-gray"></view>
+      </view>
+    </view>
+  </block>
+</view>
+<view wx:if="{{loading}}" class="cu-load bg-white text-pink loading"></view>

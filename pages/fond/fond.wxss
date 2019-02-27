@@ -1,0 +1,21 @@
+/* pages/fond/fond.wxss */
+.spliter {
+  border: solid 1px #ea1c6a;
+  margin: 20rpx;
+}
+
+.music-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cu-list.menu>.cu-item {
+  min-height: 110rpx;
+}
+
+.singer {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

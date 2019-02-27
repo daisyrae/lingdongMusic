@@ -1,0 +1,33 @@
+<!--pages/videoPlay/videoPlay.wxml-->
+<view wx:if="{{!mv}}" class="cu-load bg-white text-pink loading"></view>
+<view wx:if="{{mv}}" class="cu-card case no-card">
+  <view class="cu-item shadow">
+    <view class='image'>
+      <video class='video' id="{{mv.id}}" src="{{mv.url}}" object-fit="fill" play-btn-position="center" show-mute-btn="true" title="{{item.name}}"></video>
+    </view>
+    <view class="cu-list menu menu-avatar">
+      <view class="cu-item">
+        <view class="cu-avatar round lg" style="background-image:url({{mv.pic}});"></view>
+        <view class='content flex-sub'>
+          <view class='text-black'>{{mv.name}}</view>
+          <view class='text-gray text-sm flex justify-between'>
+            {{mv.singer}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='action text-sm padding'>
+      <text class='icon-titles text-pink'></text> 发行日期：
+      <text class='text-gray'>{{mv.publishTime}}</text>
+    </view>
+    <view class='action text-sm padding'>
+      <text class='icon-titles text-pink'></text> 播放次数：
+      <text class='text-gray'>{{mv.playCount}}</text>
+    </view>
+    <view class='padding bg-white'>
+      <view class='text-left'>
+        <text class='text-content'>{{mv.desc}}</text>
+      </view>
+    </view>
+  </view>
+</view>

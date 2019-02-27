@@ -1,0 +1,40 @@
+<!--pages/musicList/musicList.wxml-->
+<view wx:if="{{songList}}" class="cu-card dynamic">
+  <view class="cu-item shadow" style='margin:10rpx 0;'>
+    <view class="cu-list menu menu-avatar">
+      <view class="cu-item">
+        <view class="cu-avatar lg" style="background-image:url({{songList.songListPic}});" bindtap='previewImg' data-url="{{songList.songListPic}}"></view>
+        <view class='content flex-sub' style='line-height:2em;'>
+          <view class='singer'>{{songList.songListName}}</view>
+          <view class='text-gray text-sm flex justify-between'>
+            播放{{songList.songListPlayCount}}次
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='text-content' style='max-height:100%;'>
+      <text>{{songList.songListDescription?songList.songListDescription:''}}</text>
+    </view>
+  </view>
+</view>
+<view wx:if="{{songs}}" class="cu-list menu menu-avatar">
+  <block wx:for="{{songs}}" wx:key wx:for-index="index">
+    <view class="cu-item" bindtap='gotoAudioPlay' data-songindex="{{index}}" data-songlistid="{{songList.songListId}}" data-songid="{{item.id}}">
+      <view class="cu-index text-gray">{{index+1}}</view>
+      <view class="cu-avatar lg margin-index" style="background-image:url({{item.pic}});"></view>
+      <view class='content margin-index'>
+        <view class="text-black singer">
+          {{item.name}}
+        </view>
+        <view class="text-gray text-sm singer">
+          {{item.singer}}
+        </view>
+      </view>
+      <view class='action'>
+        <view class="text-gray text-sm">{{item.long}}</view>
+        <view class="icon-playfill text-sm text-gray"></view>
+      </view>
+    </view>
+  </block>
+</view>
+<view wx:if="{{!songList}}" class="cu-load bg-white text-pink loading"></view>

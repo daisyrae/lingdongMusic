@@ -1,0 +1,22 @@
+<!--pages/albumList/albumList.wxml-->
+<view wx:if="{{songs}}" class="cu-list menu menu-avatar">
+  <block wx:for="{{songs}}" wx:key wx:for-index="index">
+    <view class="cu-item" bindtap='gotoAudioPlay' data-songindex="0" data-songlistid="111" data-songid="{{item.id}}">
+      <view class="cu-index text-gray">{{index+1}}</view>
+      <view class="cu-avatar lg margin-index" style="background-image:url({{item.pic}});"></view>
+      <view class='content margin-index'>
+        <view class="text-black singer">
+          {{item.name}}
+        </view>
+        <view class="text-gray text-sm singer">
+          {{item.singer}}
+        </view>
+      </view>
+      <view class='action'>
+        <view class="text-gray text-xs">{{item.long}}</view>
+        <view class="icon-playfill text-gray"></view>
+      </view>
+    </view>
+  </block>
+</view>
+<view wx:if="{{!songs}}" class="cu-load bg-white text-pink loading"></view>

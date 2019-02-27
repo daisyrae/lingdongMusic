@@ -1,0 +1,20 @@
+/* pages/songList/songList.wxss */
+
+.bg-shadeBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: left;
+  padding: 10rpx;
+  background-color: transparent;
+  background-image: none !important;
+}
+
+.cu-card>.cu-item {
+  margin: 20rpx;
+}
+
+.cu-tag:not([class*="bg"]):not([class*="line"]) {
+  background-color: transparent;
+}

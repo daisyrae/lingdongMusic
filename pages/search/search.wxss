@@ -1,0 +1,49 @@
+/* pages/search/search.wxss */
+
+.position-fixed{
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  -webkit-transform: translateZ(0);
+}
+
+.main{
+  margin-top: 200rpx;
+}
+
+.border-tab {
+  border-bottom: 1px solid #ea1c6a;
+}
+
+.padding-tab {
+  padding-bottom: 10rpx;
+}
+
+.cu-index {
+  position: absolute;
+  left: 20rpx;
+}
+
+.content {
+  width: 80%;
+}
+
+.margin-index {
+  margin-left: 50rpx;
+}
+
+.singer {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.action {
+  line-height: 1.6em;
+  text-align: right;
+}
+
+.cu-list.menu-avatar>.cu-item .action {
+  text-align: right;
+}

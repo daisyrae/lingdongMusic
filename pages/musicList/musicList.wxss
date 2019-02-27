@@ -1,0 +1,29 @@
+/* pages/musicList/musicList.wxss */
+
+.cu-index {
+  position: absolute;
+  left: 20rpx;
+}
+
+.content {
+  width: 80%;
+}
+
+.margin-index {
+  margin-left: 50rpx;
+}
+
+.singer {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.action {
+  line-height: 1.6em;
+  text-align: right;
+}
+
+.cu-list.menu-avatar>.cu-item .action {
+  text-align: right;
+}

@@ -1,0 +1,55 @@
+<!--index.wxml-->
+<view wx:if="{{!songs||loading}}" class="cu-load bg-white loading text-pink"></view>
+<view wx:if="{{songs}}">
+  <view class="cu-bar">
+    <view class='action'>
+      <text class='text-xxl text-bold text-black'>歌单推荐</text>
+    </view>
+    <view class='action'>
+      <view class='equalizer' bindtap='gotoAudioPlayer'>
+        <view class='{{playing?"span":"span-paused"}}'></view>
+        <view class='{{playing?"span":"span-paused"}}'></view>
+        <view class='{{playing?"span":"span-paused"}}'></view>
+        <view class='{{playing?"span":"span-paused"}}'></view>
+        <view class='{{playing?"span":"span-paused"}}'></view>
+      </view>
+    </view>
+  </view>
+  <view class='grid col-3'>
+    <block wx:for="{{categorys}}" wx:key>
+      <view class='padding-sm' bindtap='gotoSongList' data-order="{{item.order}}">
+        <view class='bg-gradual-{{item.color}} padding radius text-center shadow-blur'>
+          <view class="text-lg">{{item.name}}</view>
+          <view class='margin-top-sm text-Abc'>{{item.word}}</view>
+          <view class='margin-top-sm text-Abc'>{{item.desc}}
+            <text class='icon-{{item.icon}} margin-left-sm'></text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class='spliter'></view>
+  <view class="cu-bar" bindtap='gotoMusicList' data-id="2884035">
+    <view class='action'>
+      <text class='text-xxl text-bold text-black'>音乐推荐</text>
+    </view>
+    <view class='action'>
+      <text class='text-lg text-pink'>更多···</text>
+    </view>
+  </view>
+  <view class="cu-list menu sm-border">
+    <block wx:for="{{5}}" wx:key wx:for-index="index">
+      <view class="cu-item" bindtap='gotoAudioPlay' data-songindex="{{index}}" data-songlistid="{{songList.songListId}}" data-songid="{{songs[index].id}}">
+        <view class='text-black singer'>
+          <text class='text-black'>{{index+1}}</text>
+          <view class="cu-avatar sm margin-left-sm" style="background-image:url({{songs[index].pic}});"></view>
+          <text class='margin-left-sm music-name'>{{songs[index].name}} - {{songs[index].singer}}</text>
+        </view>
+        <view class='action'>
+          <text class='text-gray margin-right-sm'>{{songs[index].long}}</text>
+          <text class='icon-playfill text-sm text-gray'></text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

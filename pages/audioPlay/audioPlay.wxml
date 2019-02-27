@@ -1,0 +1,54 @@
+<!--pages/audioPlay/audioPlay.wxml-->
+<view class='container'>
+  <view class='player-bg' style="background-image:url({{song.pic}});"></view>
+  <view class='player-img'>
+    <view class='song-title margin-bottom-sm text-lg text-white'>{{song.name}}</view>
+    <image class='song-image {{playing?"rotate":"rotate-paused"}}' src="{{song.pic}}" mode="scaleToFill" bindtap='previewImg' data-url='{{song.pic}}'></image>
+    <view class='song-title margin-top text-lg text-white'>{{song.singer}}</view>
+  </view>
+</view>
+<view class='control padding'>
+  <view class="cu-bar padding">
+    <button class='cu-btn bg-none' bindtap='gotoHomeIndex'>
+      <text class='icon-home text-pink text-xxl'></text>
+    </button>
+    <button class='cu-btn bg-none' open-type="share">
+      <text class='icon-forward text-pink text-xxl'></text>
+    </button>
+  </view>
+  <view class='time-area'>
+    <text class='text-black'>{{song.nowLong}}</text>
+    <slider class='slider' block-size="12" backgroundColor="#f9d7ea" block-color="#ea1c6a" activeColor="#ea1c6a" value="{{song.nowTime}}" max="{{song.time}}" bindchange="sliderChange"></slider>
+    <text class='text-gray'>{{song.long}}</text>
+  </view>
+  <view class='control-opt'>
+    <image class='icon_sm' src='/images/icon_player_{{playMode}}.png' bindtap='changePlayMode'></image>
+    <image class='icon-lg' src='/images/icon_player_prev.png' bindtap='playPrev'></image>
+    <image class='icon-bg' src='/images/icon_player_{{playing?"stop":"play"}}.png' bindtap='switchPlay'></image>
+    <image class='icon-lg' src='/images/icon_player_next.png' bindtap='playNext'></image>
+    <image class='icon-nm' src='/images/icon_player_list.png' bindtap="showModalList"></image>
+  </view>
+</view>
+
+<view class="cu-modal bottom-modal {{modalShow?'show':''}}" bindtap="hideModalList">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white shadow justify-between" catchtap='doNothing'>
+      <view class='action text-sm' catchtap='playAllSongs'>
+        <text class='icon-refresh text-sm text-pink'></text>
+        <text class='text-pink margin-left-sm'>播放全部</text>
+      </view>
+      <view class='action' bindtap='hideModalList'>
+        <text class='text-gray text-sm'>关闭</text>
+      </view>
+    </view>
+    <scroll-view scroll-y class="scroll-list bg-white">
+      <block wx:for="{{songs}}" wx:key wx:for-index="index">
+        <view class="list-item {{index!=0?'solid-top':''}} text-{{song.id==item.id?'pink':'black'}}" catchtap='playItemSong' data-index='{{index}}'>
+          <text class='list-index'>{{index+1}}</text>
+          <text class='list-title'>{{item.name}} - {{item.singer}}</text>
+          <text class="icon-{{song.id==item.id&&playing?'stop':'playfill'}}"></text>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>

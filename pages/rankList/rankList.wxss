@@ -1,0 +1,19 @@
+/* pages/rankList/rankList.wxss */
+.desc {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.content{
+  width: 80%;
+}
+
+.action {
+  line-height: 1.6em;
+  text-align: right;
+}
+
+.cu-list.menu-avatar>.cu-item .action {
+  text-align: right;
+}

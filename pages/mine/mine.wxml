@@ -1,0 +1,57 @@
+<!--pages/mine/mine.wxml-->
+<view class='padding user-info bg-white flex flex-direction justify-center align-center text-center'>
+  <view class="userinfo-avatar">
+    <open-data type="userAvatarUrl"></open-data>
+  </view>
+  <view class="action padding-tb-sm" bindtap='gotoMineInfo'>
+    <view class="cu-tag round bg-white text-black">
+      <text class='icon-people margin-right-sm'></text>
+      <open-data type="userNickName"></open-data>
+    </view>
+    <view class="cu-tag round bg-white padding-lr text-black">
+      <open-data type="userGender" lang="zh_CN"></open-data>
+    </view>
+  </view>
+</view>
+<view class="bg-red main">
+  <view class='padding flex text-center text-black bg-white'>
+    <view class='flex flex-sub flex-direction solid-right'>
+      <view class="text-xxl text-orange">{{recentCount}}</view>
+      <view class="margin-top-sm">
+        最近播放
+      </view>
+    </view>
+    <view class='flex flex-sub flex-direction solid-right'>
+      <view class="text-xxl text-red">{{likeCount}}</view>
+      <view class="margin-top-sm">
+        我喜欢的
+      </view>
+    </view>
+    <view class='flex flex-sub flex-direction'>
+      <view class="text-xxl text-pink">{{collectCount}}</view>
+      <view class="margin-top-sm">
+        收藏歌单
+      </view>
+    </view>
+  </view>
+  <view class="cu-list menu sm-border bg-white padding-top">
+    <view class="cu-item arrow">
+      <button class='cu-btn content' open-type="share">
+        <text class='icon-share text-pink'></text>
+        <text class='text-black'>邀请好友</text>
+      </button>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class='content' hover-class='none' target="miniProgram" open-type="navigate" app-id="wx18a2ac992306a5a4" path="pages/apps/largess/detail?id=2g2C3QV0FfQ%3D" version="release">
+        <text class='icon-appreciate text-pink'></text>
+        <text class='text-black'>赞赏支持</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <button class='cu-btn content' bindtap='clearStorage'>
+        <text class='icon-delete text-pink'></text>
+        <text class='text-black'>清除缓存</text>
+      </button>
+    </view>
+  </view>
+</view>

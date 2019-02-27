@@ -1,0 +1,19 @@
+/* pages/albumList/albumList.wxss */
+.cu-index {
+  position: absolute;
+  left: 20rpx;
+}
+
+.content{
+  width: 80%;
+}
+
+.margin-index {
+  margin-left: 50rpx;
+}
+
+.singer {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

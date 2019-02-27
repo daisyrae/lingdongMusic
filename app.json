@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/fond/fond",
+    "pages/mine/mine",
+    "pages/search/search",
+    "pages/songList/songList",
+    "pages/mvList/mvList",
+    "pages/musicList/musicList",
+    "pages/rankList/rankList",
+    "pages/albumList/albumList",
+    "pages/videoPlay/videoPlay",
+    "pages/audioPlay/audioPlay",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ea1c6a",
+    "navigationBarTitleText": "socool",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#9e9e9e",
+    "selectedColor": "#ea1c6a",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/images/icon_tab1_off.png",
+        "selectedIconPath": "/images/icon_tab1_on.png",
+        "text": "乐库"
+      },
+      {
+        "pagePath": "pages/fond/fond",
+        "iconPath": "/images/icon_tab2_off.png",
+        "selectedIconPath": "/images/icon_tab2_on.png",
+        "text": "发现"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "iconPath": "/images/icon_tab3_off.png",
+        "selectedIconPath": "/images/icon_tab3_on.png",
+        "text": "搜索"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx18a2ac992306a5a4"
+  ],
+  "requiredBackgroundModes": [
+    "audio"
+  ]
+}
